@@ -12,6 +12,7 @@ def add_tuple(tuple_a=(), tuple_b=()):
     else:
         first_a = tuple_a[0]
         second_a = tuple_a[1]
+
     if len2 == 0:
         first_b = 0
         second_b = 0
