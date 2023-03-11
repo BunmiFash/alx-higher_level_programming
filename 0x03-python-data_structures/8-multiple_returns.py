@@ -2,9 +2,12 @@
 
 def multiple_returns(sentence):
     length = len(sentence)
-    first = sentence[0]
-
-    tup = (length, first)
-    return tup
+    if (length == 0):
+        tup = (length, None)
+        return tup
+    else:
+        first = sentence[0]
+        tup = (length, first)
+        return tup
     
     
