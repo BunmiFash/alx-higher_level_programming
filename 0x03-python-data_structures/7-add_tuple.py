@@ -23,8 +23,8 @@ def add_tuple(tuple_a=(), tuple_b=()):
         first_b = tuple_b[0]
         second_b = tuple_b[1]
 
-    first = first_a + first_b
-    second = second_a + second_b
+    #first = first_a + first_b
+    #second = second_a + second_b
 
-    new_tuple = (first, second)
+    new_tuple = (first_a + first_b, second_a + second_b)
     return (new_tuple)
