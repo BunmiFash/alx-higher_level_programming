@@ -27,6 +27,3 @@ def add_tuple(tuple_a=(), tuple_b=()):
 
     new_tuple = (first, second)
     return new_tuple
-
-
-
