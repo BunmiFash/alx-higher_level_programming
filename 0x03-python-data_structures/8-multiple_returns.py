@@ -8,4 +8,4 @@ def multiple_returns(sentence):
     else:
         first = sentence[0]
         tup = (length, first)
-        return tup 
+        return tup
