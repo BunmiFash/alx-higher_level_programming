@@ -6,9 +6,6 @@ def weight_average(my_list=[]):
     add = 0
     div = 0
     for sub in my_list:
-        first = sub[0]
-        second = sub[1]
-        mul = first * second
-        add += mul
-        div += second
+        add += (sub[0] * sub[1])
+        div += sub[1]
     return (add / div)
