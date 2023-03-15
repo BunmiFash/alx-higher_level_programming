@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 
 def complex_delete(a_dictionary, value):
-    val = list(a_dictionary.values())
-    keys = list(a_dictionary.keys())
-    if value not in val:
+    to_del = []
+    values = a_dictionary.values()
+    if value not in values:
         return a_dictionary
-    for i in range(len(val)):
-        if val[i] == value:
-            del a_dictionary[keys[i]]
+    for key, val in a_dictionary.items():
+        if val == value:
+            to_del.append(key)
+    for key in to_del:
+        del a_dictionary[key]
     return a_dictionary
