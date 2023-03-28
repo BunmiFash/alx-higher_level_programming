@@ -29,6 +29,9 @@ class Square:
 
     """ This method prints a square with # """
     def my_print(self):
+        if self.__size == 0:
+            print()
+            return
         sqr = self.__size
         while (sqr > 0):
             for i in range(self.__size):
