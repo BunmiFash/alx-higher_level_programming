@@ -10,5 +10,4 @@ class Square:
         Args:
             size(int): The size attribute of the square
         """
-        self.__size = size # A private instance attribute size
-
+        self.__size = size  # A private instance attribute size
