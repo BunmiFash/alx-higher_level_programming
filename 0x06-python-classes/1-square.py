@@ -4,10 +4,6 @@
 
 
 class Square:
+    """ The method creates a private instance attribute size"""
     def __init__(self, size):
-        """ This is the init method that defines a private attribute size
-
-        Args:
-            size(int): The size attribute of the square
-        """
-        self.__size = size  # A private instance attribute size
+        self.__size = size
