@@ -32,10 +32,12 @@ class Square:
     """ This method sets the coordinates of the square """
     @position.setter
     def position(self, value):
-        if (not isinstance(value, tuple) and (value[0] > 0 and value[1] > 0)):
-            self.__position = value
-        else:
+        if (type(value) is not tuple) or (len(value) != 2) or  \
+           (type(value[0]) is not int) or \
+           (type(value[1]) is not int) or (value[0] < 0) or (value[1] < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            self.__position = value
 
     """ Area Mthod that returns the area of the square"""
     def area(self):
