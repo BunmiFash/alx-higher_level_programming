@@ -50,13 +50,12 @@ class Rectangle:
         return (2 * (self.__width + self.__height))
 
     """Method to print rectangle with #"""
-    def __str__(self):
+    def __str__(self) -> str:
         rect = ""
         if (self.__height == 0) or (self.__width == 0):
             return ("")
         for i in range(self.__height):
             for j in range(self.__width):
-                rect += "#"
-                if (j == self.width - 1):
-                    rect += "\n"
+                print("#", end='')
+            print()
         return rect
