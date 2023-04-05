@@ -1,0 +1,72 @@
+say_my_name MODULE: Prints first and last names
+===============================================
+
+Using say_my_name function
+--------------------------
+
+Importing say_my_name function:
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Test case 1: First name and last name as strings
+	>>> say_my_name("John", "Smith")
+	My name is John Smith
+
+Test case 2: Only one argument passed
+	>>> say_my_name("John")
+        My name is John
+
+Test case 3: Last name as not string
+	>>> say_my_name("John", 20)
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
+
+	>>> say_my_name("John", 20.5)
+        Traceback (most recent call last):
+                ...
+        TypeError: last_name must be a string
+
+	>>> say_my_name("John", ["snow"])
+        Traceback (most recent call last):
+                ...
+        TypeError: last_name must be a string
+
+Test case 4: First name as not string
+        >>> say_my_name(20, "Smith")
+        Traceback (most recent call last):
+                ...
+        TypeError: first_name must be a string
+
+        >>> say_my_name(10.3, "jane")
+        Traceback (most recent call last):
+                ...
+        TypeError: first_name must be a string
+
+        >>> say_my_name(["John"], "snow")
+        Traceback (most recent call last):
+                ...
+        TypeError: first_name must be a string
+
+Test case 5: Both names not string
+        >>> say_my_name(23, 20)
+        Traceback (most recent call last):
+                ...
+        TypeError: first_name must be a string
+
+Test case 6: None passed as first argument
+	>>> say_my_name(None, "John")
+        Traceback (most recent call last):
+                ...
+        TypeError: first_name must be a string
+
+Test case 7: None passed as last argument
+        >>> say_my_name("John", None)
+        Traceback (most recent call last):
+                ...
+        TypeError: last_name must be a string
+
+Test case 8: only one integer argument is passed
+	>>> say_my_name(20)
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string

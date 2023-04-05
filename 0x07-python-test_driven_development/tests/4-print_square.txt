@@ -1,0 +1,50 @@
+The module print_square prints a square with the character #
+-------------------------------------------------------------
+
+Importing the module
+	>>> print_square = __import__('4-print_square').print_square
+
+Test Case 1: Size is an integer
+	>>> print_square(5)
+	#####
+	#####
+	#####
+	#####
+	#####
+
+Test Case 2: Size is a float
+	>>> print_square(5.5)
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+Test Case 3: Size is a string
+	>>> print_square("Five")
+        Traceback (most recent call last):
+                ...
+        TypeError: size must be an integer
+
+Test Case 4: Size is less than 0
+	>>> print_square(-5)
+        Traceback (most recent call last):
+                ...
+        ValueError: size must be >= 0
+
+Test Case 5: Size is 0
+	>>> print_square(0)
+
+Test Case 6: Size is a list, tuple, dictionary
+        >>> print_square([10])
+        Traceback (most recent call last):
+                ...
+        TypeError: size must be an integer
+	
+	>>> print_square((10,))
+        Traceback (most recent call last):
+                ...
+        TypeError: size must be an integer
+
+        >>> print_square({10})
+        Traceback (most recent call last):
+                ...
+        TypeError: size must be an integer

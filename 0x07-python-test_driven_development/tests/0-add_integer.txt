@@ -1,0 +1,94 @@
+The 0-add_integer module which returns the sum of two numbers, a and b.
+=======================================================================
+
+Using "add_integer"
+-------------------
+
+Importing the add_integer function:
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+Test Case 1: Sum of two positive numbers
+	>>> add_integer(1, 2)
+	3
+
+Test Case 2: Sum of a positive and negative number
+	>>> add_integer(100, -2)
+	98
+
+Test Case 3: When only one positive number is passed as argument
+	>>> add_integer(10)
+	108
+
+Test Case 4: When only one negative number is passed as argument
+	>>> add_integer(-10)
+	88
+
+Test Case 5: Sum of a float and an integer
+	>>> add_integer(100.3, 2)
+	102
+
+Test Case 6: Sum of an int and float
+	>>> add_integer(2, 3.3)
+	5
+
+Test Case 7: Sum of two negative numbers
+	>>> add_integer(-2, -3)
+	-5
+
+Test Case 8: Only floats or integers are allowed, strings cannot be passed as args:
+	>>> add_integer("school", 2)
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+	>>> add_integer(2, "School")
+        Traceback (most recent call last):
+                ...
+        TypeError: b must be an integer
+
+	>>> add_integer("school", "jane")
+        Traceback (most recent call last):
+                ...
+        TypeError: a must be an integer
+
+	>>> add_integer("school")
+        Traceback (most recent call last):
+                ...
+        TypeError: a must be an integer
+
+Test Case 9: Lists and tuples are not to be passed as arguments:
+	>>> add_integer([12], 2)
+        Traceback (most recent call last):
+                ...
+        TypeError: a must be an integer
+
+        >>> add_integer(2, [12])
+        Traceback (most recent call last):
+                ...
+        TypeError: b must be an integer
+
+        >>> add_integer([12])
+        Traceback (most recent call last):
+                ...
+        TypeError: a must be an integer
+
+        >>> add_integer((2,))
+        Traceback (most recent call last):
+                ...
+        TypeError: a must be an integer
+
+	>>> add_integer(10, (2,))
+        Traceback (most recent call last):
+                ...
+        TypeError: b must be an integer
+	
+	>>> add_integer(10, {1 : 2})
+        Traceback (most recent call last):
+                ...
+        TypeError: b must be an integer
+
+Test Case 10: None should not be passed as argument:
+	>>> add_integer(None)
+        Traceback (most recent call last):
+                ...
+        TypeError: a must be an integer

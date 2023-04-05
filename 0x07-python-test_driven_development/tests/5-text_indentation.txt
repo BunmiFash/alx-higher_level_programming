@@ -1,0 +1,79 @@
+============================================================================
+5-text_indentation module that prints a new line after every .,:? characters
+============================================================================
+
+Importing the text_indentation function
+	>>> text_indent = __import__('5-text_indentation').text_indentation
+
+Test Case 1: A single line String passed as argument
+	>>> text_indent("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+	Lorem ipsum dolor sit amet,
+	consectetur adipiscing elit.
+
+Test Case 2: A multiline string passed as argument
+	>>> text_indent("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+			Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+			Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
+			Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
+			Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum \
+			rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo \
+			stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
+			cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
+			beatiorem! Iam ruinas videres""")
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+	
+	Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere?
+	
+
+	Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud:
+	
+
+	Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere.
+	
+
+	Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum
+
+	
+	rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo
+
+
+	stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum
+
+
+	cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio
+
+
+	beatiorem! Iam ruinas videres
+
+Test Case 3: A number passed as argument
+	>>> text_indent(23901)
+	Traceback (most recent last call):
+		...
+	TypeError: text must be a string
+
+	>>> text_indent(2.1)
+        Traceback (most recent last call):
+                ...
+        TypeError: text must be a string
+
+	>>> text_indent(-4)
+        Traceback (most recent last call):
+                ...
+        TypeError: text must be a string
+
+Test Case 4: List, tuple, dictionaries passed as argument
+	>>> text_indent(["A text string"])
+        Traceback (most recent last call):
+                ...
+        TypeError: text must be a string
+
+	>>> text_indent({"A": "Text string"})
+        Traceback (most recent last call):
+                ...
+        TypeError: text must be a string
+
+	>>> text_indent(("A text string,"))
+        Traceback (most recent last call):
+                ...
+        TypeError: text must be a string
