@@ -86,4 +86,4 @@ class Rectangle:
     """Method that returns a new Rectangle instance"""
     @classmethod
     def square(cls, size=0):
-        return cls(height=size, width=size)
+        return cls(size, size)
