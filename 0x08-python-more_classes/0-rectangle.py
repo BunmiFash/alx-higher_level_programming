@@ -4,4 +4,5 @@
 
 
 class Rectangle:
+    """Definition only"""
     pass
