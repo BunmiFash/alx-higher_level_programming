@@ -49,15 +49,6 @@ class Rectangle:
             return 0
         return (2 * (self.__width + self.__height))
 
-    """Method to print a rectangle with #"""
-    def print(self):
-        if (self.__height == 0) or (self.__width == 0):
-            return ("")
-        for i in range(self.__height):
-            for j in range(self.__width):
-                print("#", end='')
-            print()
-
     """Method to print rectangle with #"""
     def __str__(self):
         rect = ""
@@ -65,6 +56,7 @@ class Rectangle:
             return ("")
         for i in range(self.__height):
             for j in range(self.__width):
-                print("#", end='')
-            print()
+                rect += "#"
+                if (j == self.width - 1):
+                    rect += "\n"
         return rect
