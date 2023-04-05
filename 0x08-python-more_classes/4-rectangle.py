@@ -51,15 +51,10 @@ class Rectangle:
 
     """Method to print rectangle with #"""
     def __str__(self) -> str:
-        if (self.__width == 0) or (self.__height == 0):
-            return ("")
-        rectangle = ""
-        for row in range(self.__height):
-            for col in range(self.__width):
-                rectangle += "#"
-                if (col == (self.width - 1)):
-                    rectangle += "\n"
-        return (rectangle)
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        pic = "\n".join(["#" * self.__width for rows in range(self.__height)])
+        return pic
 
     """__repr__"""
     def __repr__(self):
