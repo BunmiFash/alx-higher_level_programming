@@ -66,3 +66,10 @@ Test Case 7: Inserting the same number tothe list
 >>> my_list.append(10)
 >>> my_list.print_sorted()
 [10, 10, 10, 10]
+
+Test Case 8: Not initializing the class
+>>> my_list = [1, 2, 5, 3]
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+	...
+AttributeError: 'list' object has no attribute 'print_sorted'
