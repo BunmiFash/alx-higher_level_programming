@@ -5,10 +5,14 @@
 
 class MyInt(int):
     """MyInt inherits from the int class"""
-    def __eq__(self, value):
-        """Returns the inverse of original operation"""
-        return self.real != value
+    def __init__(self, value):
+        """Initializing value"""
+        self.value = value
 
-    def __ne__(self, value):
+    def __eq__(self, other):
         """Returns the inverse of original operation"""
-        return self.real == value
+        return self.value != other
+
+    def __ne__(self, other):
+        """Returns the inverse of original operation"""
+        return self.value == other
