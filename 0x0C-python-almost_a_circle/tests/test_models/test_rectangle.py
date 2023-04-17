@@ -30,7 +30,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect1.height, 20)
         self.assertEqual(self.rect1.x, 2)
         self.assertEqual(self.rect1.y, 4)
-        self.assertEqual(self.rect1.id, 61)
+        self.assertEqual(self.rect1.id, 65)
 
     def test_rect_all_attr(self):
         """Test all attributes present"""
@@ -46,7 +46,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect3.height, 1)
         self.assertEqual(self.rect3.x, 0)
         self.assertEqual(self.rect3.y, 0)
-        self.assertEqual(self.rect3.id, 12)
+        self.assertEqual(self.rect3.id, 16)
 
     def test_rect_negative_x(self):
         """x is -ve"""
@@ -240,21 +240,21 @@ class TestRectangle(unittest.TestCase):
         """Overriding string with no id provided"""
         self.rectt = Rectangle(4, 2, 7, 2)
         self.res2 = self.rectt.__str__()
-        self.resExp = "[Rectangle] (3) 7/2 - 4/2"
+        self.resExp = "[Rectangle] (7) 7/2 - 4/2"
         self.assertEqual(self.res2, self.resExp)
 
     def test__str__no_y_id(self):
         """Overridng string with no y and id"""
         self.rect29 = Rectangle(10, 4, 6)
         self.res3 = self.rect29.__str__()
-        self.resExp1 = "[Rectangle] (6) 6/0 - 10/4"
+        self.resExp1 = "[Rectangle] (10) 6/0 - 10/4"
         self.assertEqual(self.res3, self.resExp1)
 
     def test_str__no__x_y_id(self):
         """Overridng string with no x, y and id"""
         self.rect30 = Rectangle(10, 4)
         self.res4 = self.rect30.__str__()
-        self.resExp2 = "[Rectangle] (130) 0/0 - 10/4"
+        self.resExp2 = "[Rectangle] (134) 0/0 - 10/4"
         self.assertEqual(self.res4, self.resExp2)
 
     """
@@ -372,7 +372,7 @@ class TestRectangle(unittest.TestCase):
         self.dict2 = self.rect44.to_dictionary()
         self.assertEqual(
                 self.dict2,
-                {'x': 2, 'y': 3, 'id': 25, 'height': 4, 'width': 7})
+                {'x': 2, 'y': 3, 'id': 29, 'height': 4, 'width': 7})
 
     def test_rect_dict_no_id_y(self):
         """Converts all attributes to a dictionary"""
@@ -380,7 +380,7 @@ class TestRectangle(unittest.TestCase):
         self.dict3 = self.rect45.to_dictionary()
         self.assertEqual(
                 self.dict3,
-                {'x': 2, 'y': 0, 'id': 28, 'height': 4, 'width': 7})
+                {'x': 2, 'y': 0, 'id': 32, 'height': 4, 'width': 7})
 
     def test_rect_dict_no_id_y_y(self):
         """Converts all attributes to a dictionary"""
@@ -388,7 +388,7 @@ class TestRectangle(unittest.TestCase):
         self.dict4 = self.rect46.to_dictionary()
         self.assertEqual(
                 self.dict4,
-                {'x': 0, 'y': 0, 'id': 31, 'height': 4, 'width': 7})
+                {'x': 0, 'y': 0, 'id': 35, 'height': 4, 'width': 7})
 
     def test_rect_dict_all(self):
         """Converts all attributes to  dictionary"""
