@@ -111,7 +111,7 @@ class TestBaseModule(unittest.TestCase):
     TEST CASES FOR LIST_DICT TO JSON STRING - SQUARE
     """
     def test_base_one_sqr_to_json(self):
-        """"""
+        """Converts attributes to json"""
         self.sqr1 = Square(4, 3, 2, 7)
         self.sqr1_dict = self.sqr1.to_dictionary()
         self.sqr1_json = Base.to_json_string([self.sqr1_dict])
@@ -120,6 +120,7 @@ class TestBaseModule(unittest.TestCase):
                 '[{"id": 7, "x": 3, "size": 4, "y": 2}]')
 
     def test_base_two_sqr_to_json(self):
+        """Converts attributes to json"""
         self.sqr2 = Square(4, 3, 2, 7)
         self.sqr3 = Square(5, 2, 1, 6)
         self.sqr2_dict = self.sqr2.to_dictionary()
@@ -132,6 +133,7 @@ class TestBaseModule(unittest.TestCase):
  {"id": 6, "x": 2, "size": 5, "y": 1}]')
 
     def test_base_sqr_to_json_type(self):
+        """Checks output type"""
         self.sqr4 = Square(5, 2, 1, 6)
         self.sqr4_dict = self.sqr4.to_dictionary()
         self.sqr4_type = Base.to_json_string([self.sqr4_dict])
@@ -141,16 +143,19 @@ class TestBaseModule(unittest.TestCase):
     TEST CASES FOR SAVING JSON STRING REPRESANTATION TO FILE - RECT
     """
     def test_save_to_file_none(self):
+        """Test case to save json to file"""
         Rectangle.save_to_file(None)
         with open("Rectangle.json", 'r') as file:
             self.assertTrue(file.read() == "[]")
 
     def test_save_to_file_empty_list(self):
+        """Test case to save json to file"""
         Rectangle.save_to_file([])
         with open("Rectangle.json", 'r') as file:
             self.assertTrue(file.read() == "[]")
 
     def test_save_to_file_one_rect(self):
+        """Test case to save json to file"""
         self.rect5 = Rectangle(2, 3, 4, 5, 6)
         Rectangle.save_to_file([self.rect5])
 
@@ -161,6 +166,7 @@ class TestBaseModule(unittest.TestCase):
                     '[{"x": 4, "y": 5, "id": 6, "height": 3, "width": 2}]')
 
     def test_save_to_file_two_rect(self):
+        """Test case to save json to file"""
         self.rect6 = Rectangle(2, 3, 4, 5, 6)
         self.rect7 = Rectangle(2, 4, 6, 8, 9)
         Rectangle.save_to_file([self.rect6, self.rect7])
@@ -174,6 +180,7 @@ class TestBaseModule(unittest.TestCase):
  "height": 4, "width": 2}]')
 
     def test_save_to_file_over_write(self):
+        """Test case to save json to file"""
         self.rect8 = Rectangle(2, 4, 6, 8, 9)
         Rectangle.save_to_file([self.rect8])
 
@@ -187,6 +194,7 @@ class TestBaseModule(unittest.TestCase):
                     '[{"x": 4, "y": 5, "id": 6, "height": 3, "width": 2}]')
 
     def test_save_to_file_no_arg(self):
+        """Test case to save json to file"""
         with self.assertRaises(TypeError):
             Rectangle.save_to_file()
 
@@ -194,16 +202,19 @@ class TestBaseModule(unittest.TestCase):
     TEST CASES FOR SAVING JSON STRING REPRESANTATION TO FILE - SQR
     """
     def test_save_to_file_sqr_none(self):
+        """Test case to save json to file"""
         Square.save_to_file(None)
         with open("Square.json", 'r') as file:
             self.assertTrue(file.read() == "[]")
 
     def test_save_to_file_sqr_empty_list(self):
+        """Test case to save json to file"""
         Square.save_to_file([])
         with open("Square.json", 'r') as file:
             self.assertTrue(file.read() == "[]")
 
     def test_save_to_file_one_square(self):
+        """Test case to save json to file"""
         self.sqr5 = Square(2, 3, 4, 5)
         Square.save_to_file([self.sqr5])
 
@@ -214,6 +225,7 @@ class TestBaseModule(unittest.TestCase):
                     '[{"id": 5, "x": 3, "size": 2, "y": 4}]')
 
     def test_save_to_file_two_sqr(self):
+        """Test case to save json to file"""
         self.sqr6 = Square(2, 3, 4, 5)
         self.sqr7 = Square(2, 4, 6, 8)
         Square.save_to_file([self.sqr6, self.sqr7])
@@ -226,6 +238,7 @@ class TestBaseModule(unittest.TestCase):
  {"id": 8, "x": 4, "size": 2, "y": 6}]')
 
     def test_save_to_file_sqr_over_write(self):
+        """Test case to save json to file"""
         self.sqr8 = Square(2, 4, 6, 8)
         Square.save_to_file([self.sqr8])
 
@@ -239,5 +252,106 @@ class TestBaseModule(unittest.TestCase):
                     '[{"id": 5, "x": 3, "size": 2, "y": 4}]')
 
     def test_save_to_file_excess_arg(self):
+        """Test case to save json to file"""
         with self.assertRaises(TypeError):
             Square.save_to_file()
+
+    """TEST CASES FOR LOADS - RECTANGLE"""
+    def test_from_json_string_none(self):
+        """Test case for load from file"""
+        self.resLoad = Rectangle.from_json_string(None)
+        self.assertEqual(self.resLoad, [])
+
+    def test_from_json_string_empty(self):
+        """Test case for load from file"""
+        self.resLoad1 = Rectangle.from_json_string([])
+        self.assertEqual(self.resLoad1, [])
+
+    def test_from_json_string_one_rect(self):
+        """Test case for load from file"""
+        self.rect10 = Rectangle(4, 5, 6, 7, 8)
+        self.rect10 = self.rect10.to_dictionary()
+        self.rectStr = Rectangle.to_json_string([self.rect10])
+        self.rectObj = Rectangle.from_json_string(self.rectStr)
+
+        self.assertEqual(
+                self.rectObj,
+                [{'x': 6, 'y': 7, 'id': 8, 'height': 5, 'width': 4}])
+
+    def test_from_json_string_two_rect(self):
+        """Test case for load from file"""
+        self.rect11 = Rectangle(4, 5, 6, 7, 8)
+        self.rect11 = self.rect11.to_dictionary()
+        self.rect12 = Rectangle(1, 2, 3, 4, 5)
+        self.rect12 = self.rect12.to_dictionary()
+        self.rectStr = Rectangle.to_json_string([self.rect11, self.rect12])
+        self.rectObj = Rectangle.from_json_string(self.rectStr)
+
+        self.assertEqual(
+                self.rectObj,
+                [{'x': 6, 'y': 7, 'id': 8, 'height': 5, 'width': 4},
+                    {'x': 3, 'y': 4, 'id': 5, 'height': 2, 'width': 1}])
+
+    def test_from_json_string_type(self):
+        """Checks the type of object returned"""
+        self.rect13 = Rectangle(4, 5, 6, 7, 8)
+        self.rect13 = self.rect13.to_dictionary()
+        self.rectStr = Rectangle.to_json_string([self.rect13])
+        self.rectObj = Rectangle.from_json_string(self.rectStr)
+
+        self.assertTrue(type(self.rectObj) == list)
+
+    def test_from_json_string_no_arg(self):
+        """Checks for errors when no arg is given"""
+        with self.assertRaises(TypeError):
+            Rectangle.from_json_string()
+
+    """TEST CASES FOR LOADS - SQUARE"""
+    def test_from_json_string_sqr_none(self):
+        """Test case for load from file"""
+        self.resLoad1 = Square.from_json_string(None)
+        self.assertEqual(self.resLoad1, [])
+
+    def test_from_json_string_sqr_empty(self):
+        """Test case for load from file"""
+        self.resLoad2 = Square.from_json_string([])
+        self.assertEqual(self.resLoad2, [])
+
+    def test_from_json_string_one_sqr(self):
+        """Test case for load from file"""
+        self.sqr10 = Square(4, 5, 6, 7)
+        self.sqr10 = self.sqr10.to_dictionary()
+        self.sqrStr = Square.to_json_string([self.sqr10])
+        self.sqrObj = Square.from_json_string(self.sqrStr)
+
+        self.assertEqual(
+                self.sqrObj,
+                [{'x': 5, 'id': 7, 'size': 4, 'y': 6}])
+
+    def test_from_json_string_two_sqr(self):
+        """Test case for load from file"""
+        self.sqr11 = Square(4, 5, 6, 7)
+        self.sqr11 = self.sqr11.to_dictionary()
+        self.sqr12 = Square(1, 2, 3, 4)
+        self.sqr12 = self.sqr12.to_dictionary()
+        self.sqrStr = Square.to_json_string([self.sqr11, self.sqr12])
+        self.sqrObj = Square.from_json_string(self.sqrStr)
+
+        self.assertEqual(
+                self.sqrObj,
+                [{'x': 5, 'id': 7, 'size': 4, 'y': 6},
+                    {'x': 2, 'id': 4, 'size': 1, 'y': 3}])
+
+    def test_from_json_string_sqr_type(self):
+        """Checks the type of object returned"""
+        self.sqr13 = Square(4, 5, 6, 7)
+        self.sqr13 = self.sqr13.to_dictionary()
+        self.sqrStr = Square.to_json_string([self.sqr13])
+        self.sqrObj = Square.from_json_string(self.sqrStr)
+
+        self.assertTrue(type(self.sqrObj) == list)
+
+    def test_from_json_string_excess_args(self):
+        """Checks for errors when no arg is given"""
+        with self.assertRaises(TypeError):
+            Square.from_json_string([], '2')
