@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+
+import unittest
+from models.tech import Tech
+
+
+class TestTech(unittest.TestCase):
+    def test_id_given(self):
+        self.b1 = Tech(20)
+        self.assertEqual(self.b1.id, 20)
+
+    def test_id_not_given(self):
+        self.b2 = Tech()
+        self.b3 = Tech()
+
+        self.assertEqual(self.b2.id, 1)
+        self.assertEqual(self.b3.id, 2)
+
+    def test_another_id(self):
+        self.b4 = Tech(22)
+        self.b4.id = 13
+        self.b6 = Tech()
+        self.assertEqual(self.b4.id, 13)
+        self.assertEqual(self.b6.id, 3)
