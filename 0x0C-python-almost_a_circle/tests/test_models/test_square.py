@@ -41,7 +41,7 @@ class TestSquareModule(unittest.TestCase):
         self.assertEqual(self.sqr3.size, 5)
         self.assertEqual(self.sqr3.x, 3)
         self.assertEqual(self.sqr3.y, 0)
-        self.assertEqual(self.sqr3.id, 138)
+        self.assertEqual(self.sqr3.id, 144)
 
     def test_sqr_size_x_y(self):
         """Size and x and y attributes present"""
@@ -49,7 +49,7 @@ class TestSquareModule(unittest.TestCase):
         self.assertEqual(self.sqr4.size, 5)
         self.assertEqual(self.sqr4.x, 3)
         self.assertEqual(self.sqr4.y, 6)
-        self.assertEqual(self.sqr4.id, 139)
+        self.assertEqual(self.sqr4.id, 145)
 
     def test_sqr_size_str(self):
         """Size is a string"""
@@ -203,19 +203,19 @@ class TestSquareModule(unittest.TestCase):
         """String representation of square, only size"""
         self.sqr31 = Square(1)
         self.str2 = self.sqr31.__str__()
-        self.assertEqual(self.str2, "[Square] (140) 0/0 - 1")
+        self.assertEqual(self.str2, "[Square] (146) 0/0 - 1")
 
     def test_sqr_str_size_x(self):
         """String representation of square: size and x"""
         self.sqr32 = Square(2, 3)
         self.str3 = self.sqr32.__str__()
-        self.assertEqual(self.str3, "[Square] (141) 3/0 - 2")
+        self.assertEqual(self.str3, "[Square] (147) 3/0 - 2")
 
     def test_sqr_str_size_x_y(self):
         """String representation of square: size and x and y"""
         self.sqr33 = Square(3, 4, 5)
         self.str4 = self.sqr33.__str__()
-        self.assertEqual(self.str4, "[Square] (142) 4/5 - 3")
+        self.assertEqual(self.str4, "[Square] (148) 4/5 - 3")
 
     """
     TEST CASES FOR UPDATE ARGS METHOD
@@ -300,19 +300,19 @@ class TestSquareModule(unittest.TestCase):
         self.sqr45 = Square(10, 4, 5)
         self.dict2 = self.sqr45.to_dictionary()
         self.assertEqual(
-                self.dict2, {'id': 135, 'x': 4, 'size': 10, 'y': 5})
+                self.dict2, {'id': 141, 'x': 4, 'size': 10, 'y': 5})
 
     def test_sqr_dict_no_id_y(self):
         self.sqr46 = Square(10, 4)
         self.dict3 = self.sqr46.to_dictionary()
         self.assertEqual(
-                self.dict3, {'id': 136, 'x': 4, 'size': 10, 'y': 0})
+                self.dict3, {'id': 142, 'x': 4, 'size': 10, 'y': 0})
 
     def test_sqr_dict_no_id_y_x(self):
         self.sqr47 = Square(10)
         self.dict4 = self.sqr47.to_dictionary()
         self.assertEqual(
-                self.dict4, {'id': 137, 'x': 0, 'size': 10, 'y': 0})
+                self.dict4, {'id': 143, 'x': 0, 'size': 10, 'y': 0})
 
     def test_sqr_dict_all(self):
         """Converts all attributes to  dictionary"""

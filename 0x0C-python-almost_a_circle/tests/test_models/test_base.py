@@ -355,3 +355,45 @@ class TestBaseModule(unittest.TestCase):
         """Checks for errors when no arg is given"""
         with self.assertRaises(TypeError):
             Square.from_json_string([], '2')
+
+    """
+    TEST CASES FOR CREATE - RECATANGLE()
+    """
+    def test_create_one_rect(self):
+        self.rect15 = Rectangle(1, 2, 3, 4, 5)
+        self.rect15 = self.rect15.to_dictionary()
+        self.rect15 = Rectangle.create(**self.rect15)
+        self.assertEqual(str(self.rect15), '[Rectangle] (5) 3/4 - 1/2')
+
+    def test_create_two_rect(self):
+        self.rect15 = Rectangle(1, 2, 3, 4, 5)
+        self.rect15 = self.rect15.to_dictionary()
+        self.rect16 = Rectangle.create(**self.rect15)
+        self.assertEqual(str(self.rect16), '[Rectangle] (5) 3/4 - 1/2')
+
+    def test_create_compare_two_rects(self):
+        self.rect15 = Rectangle(1, 2, 3, 4, 5)
+        self.rect15 = self.rect15.to_dictionary()
+        self.rect16 = Rectangle.create(**self.rect15)
+        self.assertNotEqual(self.rect16, self.rect15)
+
+    """
+    TEST CASES FOR CREATE - SQUARE
+    """
+    def test_create_one_sqr(self):
+        self.sqr15 = Square(1, 2, 3, 4)
+        self.sqr15 = self.sqr15.to_dictionary()
+        self.sqr15 = Square.create(**self.sqr15)
+        self.assertEqual(str(self.sqr15), '[Square] (4) 2/3 - 1')
+
+    def test_create_two_sqr(self):
+        self.sqr15 = Square(1, 2, 3, 4)
+        self.sqr15 = self.sqr15.to_dictionary()
+        self.sqr16 = Square.create(**self.sqr15)
+        self.assertEqual(str(self.sqr16), '[Square] (4) 2/3 - 1')
+
+    def test_create_compare_two_sqr(self):
+        self.sqr15 = Square(1, 2, 3, 4)
+        self.sqr15 = self.sqr15.to_dictionary()
+        self.sqr16 = Rectangle.create(**self.sqr15)
+        self.assertNotEqual(self.sqr16, self.sqr15)
