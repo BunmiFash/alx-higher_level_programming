@@ -23,4 +23,4 @@ if __name__ == "__main__":
     for col in session.query(State).all():
         print("{}: {}".format(col.id, col.name))
         for city in col.cities:
-            print("     {}: {}".format(city.id, city.name))
+            print("    {}: {}".format(city.id, city.name))
