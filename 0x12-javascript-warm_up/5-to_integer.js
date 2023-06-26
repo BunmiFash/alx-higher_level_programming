@@ -9,6 +9,6 @@ if (first === undefined) {
   if (isNaN(firstCon) === true) {
     console.log('Not a number');
   } else {
-    console.log(firstCon);
+    console.log('My number: ' + firstCon);
   }
 }
