@@ -2,6 +2,6 @@
 -- The database name will be passed as an argument of the mysql command
 
 -- Selecting row with condition
-SELECT COUNT(*)
+SELECT  COUNT(*)
 FROM first_table
-WHERE id == 89
+WHERE id = 89;
