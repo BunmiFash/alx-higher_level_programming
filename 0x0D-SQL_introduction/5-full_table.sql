@@ -3,4 +3,5 @@
 -- You are not allowed to use the DESCRIBE or EXPLAIN statements
 
 -- Describing a table
-DESC first_table;
+SHOW COLUMNS
+FROM first_table;
