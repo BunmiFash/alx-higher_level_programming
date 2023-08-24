@@ -9,7 +9,7 @@ module.exports = class Square extends Sqr {
       for (let row = 0; row < this.height; row++) {
         let str = '';
         for (let col = 0; col < this.width; col++) {
-          str += 'C';
+          str += val;
         }
         console.log(str);
       }
