@@ -15,8 +15,9 @@ if __name__ == "__main__":
             argv[1], argv[2], argv[3])
     engine = create_engine(db)
 
-    Session = sessionmaker(bind=engine)
+    Session = sessionmaker(engine)
     session = Session()
 
-    for id, name in session.query(State.id, State.name).order_by(State.id):
-        print('{}: {}'.format(id, name))
+    first = session.query(State.id, State.name).order_by(State.id).first()
+
+    print('{}: {}'.format(first[0], first[1]))

@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-A script that lists all State objects
+A script that prints the state object with the
+name passed as argument
 from the database hbtn_0e_6_usa
 """
 
@@ -18,5 +19,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for id, name in session.query(State.id, State.name).order_by(State.id):
-        print('{}: {}'.format(id, name))
+    query = session.query(State.id).filter(State.name == '{}'.format(
+        argv[4])).one_or_none()
+
+    if query is not None:
+        print(query[0])
+    else:
+        print("Not found")
