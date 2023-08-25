@@ -15,9 +15,13 @@ if __name__ == "__main__":
             argv[1], argv[2], argv[3])
     engine = create_engine(db)
 
-    Session = sessionmaker(engine)
+    Session = sessionmaker(bind=engine)
     session = Session()
 
-    first = session.query(State.id, State.name).order_by(State.id).first()
+    all_states = session.query(State.id, State.name).order_by(State.id).all()
 
-    print('{}: {}'.format(first[0], first[1]))
+    if len(all_states) > 0:
+        first = all_states[0]
+        print('{}: {}'.format(first[0], first[1]))
+    else:
+        print("Nothing")
