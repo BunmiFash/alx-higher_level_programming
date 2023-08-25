@@ -18,10 +18,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    all_states = session.query(State.id, State.name).order_by(State.id).all()
+    first = session.query(State.id, State.name).order_by(State.id).first()
 
-    if len(all_states) > 0:
-        first = all_states[0]
+    if first is not None:
         print('{}: {}'.format(first[0], first[1]))
     else:
         print("Nothing")
