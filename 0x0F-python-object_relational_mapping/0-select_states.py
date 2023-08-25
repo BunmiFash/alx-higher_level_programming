@@ -13,9 +13,9 @@ if __name__ == "__main__":
             passwd="Oluwabunmi12.", db="hbtn_0e_0_usa")
     cur = db.cursor()
     cur.execute(
-            """SELECT *
+            """SELECT id, name
                 FROM states
-                ORDER BY states.id
+                ORDER BY states.id ASC
             """)
     for state in cur.fetchall():
         print(state)
