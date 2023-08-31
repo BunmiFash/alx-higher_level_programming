@@ -13,8 +13,11 @@ def find_peak(list_of_integers):
     if length == 0:
         return None
     else:
+        first_peak = _list[0]
         peak = _list[0]
         for i in range(length - 1):
             if _list[i] > _list[i + 1] and _list[i] > _list[i - 1]:
                 peak = _list[i]
+                if first_peak > peak:
+                    peak = first_peak
         return peak
