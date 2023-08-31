@@ -1,3 +1,3 @@
 #!/bin/bash
 # A Bash script that takes in a URL and displays all HTTP methods the server will accept.
-curl -sLX OPTIONS "$1"
+curl -sX OPTIONS "$1"
