@@ -11,7 +11,7 @@ import sys
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         arg = ""
-        print("No result")_
+        print("No result")
     else:
         arg = sys.argv[1]
         data = {"q": arg}
